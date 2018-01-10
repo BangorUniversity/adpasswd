@@ -1,5 +1,6 @@
 README.txt
 adpasswd.py
+adinterface,py
 ldaplib.py
 setup.cfg
 setup.py
