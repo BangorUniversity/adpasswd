@@ -6,11 +6,7 @@
 """adpasswd.py Pure Python Command line interface to change Active Directory Passwords via LDAP.
     usage: adpasswd.py username [password]
 """
-
-# import os.path
-# import glob
-
-from distutils.core import setup
+from setuptools import setup, find_packages
 
 longdesc = open("README.txt").read()
 
@@ -40,6 +36,6 @@ setup(
     author_email="csawyer@yumaed.org",
     url="https://launchpad.net/adpasswd",
     license="GPL v2",
-    py_modules=['ldaplib, adinterface'],
+    packages=find_packages()
     scripts=['adpasswd.py']
 )

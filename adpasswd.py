@@ -9,7 +9,7 @@ import sys
 import ConfigParser
 import getpass
 
-from adinterface import ADInterface
+from adinterface import ADInterface  #, UserNotFoundException
 
 CONFIG_FILENAME = '.adpasswd.cfg'
 

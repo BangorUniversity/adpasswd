@@ -1,6 +1,14 @@
 import ldaplib
 
 
+
+class UserNotFoundException(Exception):
+    pass
+
+class WillNotPerformException(Exception):
+    pass
+
+
 class ADInterface(object):
 
     def __init__(self, config):
@@ -31,8 +39,10 @@ class ADInterface(object):
         x = self.l.modify(dn, [[mode, attr, values]])
         if x.errorMessage:
             # ['__doc__', '__init__', '__module__', 'app_code', 'args', 'buffer', 'decode', 'decode_sequence', 'encode', 'errorMessage', 'keyvals', 'matcheddn', 'messageid', 'myargs', 'resultcode']
-            print 'dn:', dn
+            # print 'dn:', dn
             print 'Modify Operation failure res:', x.resultcode, 'error:', x.errorMessage
+            if x.resultcode == 5:
+                raise WillNotPerformException('result', x.resultcode, 'error:', x.errorMessage)
             # print 'buffer:',x.buffer,'decode',x.decode()
             # print dir(x)
         return True
@@ -52,5 +62,5 @@ class ADInterface(object):
         passwd = self.makepassword(passwd)
         user = self.findUser(user)
         if not user:
-            raise Exception('Invalid Username, user not found.')
+            raise UserNotFoundException('Invalid Username, user not found.')
         self.modify(user, 'unicodePwd', [passwd])
