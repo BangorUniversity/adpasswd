@@ -36,6 +36,6 @@ setup(
     author_email="csawyer@yumaed.org",
     url="https://launchpad.net/adpasswd",
     license="GPL v2",
-    packages=find_packages()
+    packages=find_packages(),
     scripts=['adpasswd.py']
 )
