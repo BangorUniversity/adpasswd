@@ -36,6 +36,6 @@ setup(
     author_email="csawyer@yumaed.org",
     url="https://launchpad.net/adpasswd",
     license="GPL v2",
-    py_modules=['ldaplib, adinterface'],
+    py_modules=['ldaplib', 'adinterface'],
     scripts=['adpassword.py']
 )
