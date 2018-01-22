@@ -37,5 +37,5 @@ setup(
     url="https://launchpad.net/adpasswd",
     license="GPL v2",
     packages=find_packages(),
-    scripts=['adpasswd.py']
+    scripts=['adpassword.py']
 )
